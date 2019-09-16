@@ -42,12 +42,12 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_jobsfloating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/plus"
-        android:onClick="add_jobs"
         android:backgroundTint="@color/colorPrimary"
         android:layout_margin="10dp"/>
 
