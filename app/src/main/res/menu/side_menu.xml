@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/action_home"
+        android:title="Home"
+        android:icon="@drawable/house"
+        />
+    <item
+        android:id="@+id/action_job"
+        android:title="Jobs"
+        android:icon="@drawable/job_icon"
+        />
+    <item
+        android:id="@+id/action_paste"
+        android:title="About us"
+        android:icon="@drawable/mor"
+        />
+    <item
+        android:id="@+id/action_new"
+        android:title="Setting"
+        android:icon="@drawable/setting"
+        />
+
+    <item
+        android:id="@+id/action_login"
+        android:title="Log In"
+        android:icon="@drawable/login"
+        />
+</menu>
