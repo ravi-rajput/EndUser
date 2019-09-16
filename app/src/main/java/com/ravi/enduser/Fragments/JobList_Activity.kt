@@ -1,5 +1,6 @@
 package com.ravi.enduser.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.ravi.enduser.Activity.Create_Job_Activity
 import com.ravi.enduser.Adapter.JobList_Adapter
 import com.ravi.enduser.R
 import com.ravi.enduser.viewmodel.Job_List_Item_ViewModel
@@ -38,7 +40,8 @@ class JobList_Activity : Fragment(){
         })
 
         floatingActionButton!!.setOnClickListener{
-            val toast= Toast.makeText(activity,"button clicked" ,Toast.LENGTH_SHORT).show()
+            val intent= Intent(context,Create_Job_Activity::class.java)
+            startActivity(intent)
         }
 
         return v
