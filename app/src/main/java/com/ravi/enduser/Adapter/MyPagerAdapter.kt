@@ -18,7 +18,7 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 FirstFragment()
             }
             1 -> About_MLA_Fragment()
-            2 -> News_List_Fragment.newInstance("https://www.bhaskar.com/rss-feed/2322")
+            2 -> News_List_Fragment.newInstance("https://www.bhaskar.com/rss-feed/2322/")
             3 -> JobList_Activity()
             4 -> Fragment_Your_Area()
             else -> {
