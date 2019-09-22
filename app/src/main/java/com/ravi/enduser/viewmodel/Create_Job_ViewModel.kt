@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData
 
 class Create_Job_ViewModel : ViewModel(){
 
-    var name= MutableLiveData<String>()
     // Create a LiveData with a String
     var isClicked= MutableLiveData<Boolean> ()
 
@@ -22,6 +21,10 @@ class Create_Job_ViewModel : ViewModel(){
         isClicked.postValue(false)
 
     }
+
+    fun upload(view:View){
+
+    }
     fun field() : MutableLiveData<Boolean> {
 
         isClicked.value=false
@@ -29,9 +32,4 @@ class Create_Job_ViewModel : ViewModel(){
         return isClicked
     }
 
-    fun getArrayList(name1:String) : MutableLiveData<String> {
-        name.value=name1
-
-        return name
-    }
     }

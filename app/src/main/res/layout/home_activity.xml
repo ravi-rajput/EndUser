@@ -106,18 +106,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:tabSelectedTextColor="@color/colorAccent"
-                    app:tabBackground="@color/tab_color"
+                    app:tabBackground="@color/colorPrimaryDark"
+                    android:elevation="10dp"
                     app:tabMode="fixed" />
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewpager_main"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tabs_main"/>
+                    />
             </LinearLayout>
             </androidx.core.widget.NestedScrollView>
+
         </FrameLayout>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_jobsfloating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/plus"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorPrimary" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

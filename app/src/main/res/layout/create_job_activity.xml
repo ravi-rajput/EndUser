@@ -13,11 +13,43 @@
 
     </data>
     
-    
-    <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <RelativeLayout
+            android:id="@+id/toolbaar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="10dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/black_back"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="Create Your Profile"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbaar"
+            android:layout_marginBottom="60dp">
+
+            <LinearLayout
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent">
         <androidx.cardview.widget.CardView
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -52,7 +84,7 @@
                 android:layout_marginLeft="10dp"
                 android:maxLength="50"
                 android:hint="Mobile Number"
-                android:inputType="textCapCharacters" />
+                android:inputType="number" />
 
         </androidx.cardview.widget.CardView>
 
@@ -171,19 +203,31 @@
                 android:backgroundTint="#ffffff"
                 android:textSize="15sp"
                 android:layout_marginLeft="10dp"
-                android:maxLength="50"
+                android:maxLength="2"
                 android:hint="How many Years of Experiance"
-                android:inputType="textCapCharacters" />
+                android:inputType="number" />
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@{modelceatejob.name}"
-            android:layout_gravity="center"/>
-
     </LinearLayout>
-    
+        </ScrollView>
+        <androidx.cardview.widget.CardView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:onClick="@{modelceatejob::upload}"
+                android:background="@android:color/transparent"
+                android:text="Upload"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
 </layout>

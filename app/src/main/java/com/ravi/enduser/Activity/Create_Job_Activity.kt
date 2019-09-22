@@ -34,8 +34,6 @@ class Create_Job_Activity : AppCompatActivity() {
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         createJobViewmodel.field().observe(this, nameObserver)
 
-        createJobViewmodel.getArrayList("Rajput").observe(this,Observer{jobListItemViewmodel->
-        })
 
     }
 

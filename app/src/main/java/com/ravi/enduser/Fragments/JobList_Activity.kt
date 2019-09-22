@@ -20,7 +20,7 @@ import com.ravi.enduser.viewmodel.Job_List_Item_ViewModel
 class JobList_Activity : Fragment(){
     private var recyclerView:RecyclerView?=null
     var joblistAdapter:JobList_Adapter?=null
-    var floatingActionButton:FloatingActionButton?=null
+
 //    var imageView:ImageView?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -30,7 +30,6 @@ class JobList_Activity : Fragment(){
         var jobListItemViewmodel= ViewModelProviders.of(this).get(Job_List_Item_ViewModel::class.java)
 //         binding.modeljoblist=jobListItemViewmodel
           recyclerView=v.findViewById(R.id.recycler_view)
-        floatingActionButton=v.findViewById(R.id.add_jobsfloating)
 
         jobListItemViewmodel.getArrayList().observe(this,Observer{jobListItemViewmodel->
 
@@ -39,10 +38,7 @@ class JobList_Activity : Fragment(){
             recyclerView!!.setAdapter(joblistAdapter)
         })
 
-        floatingActionButton!!.setOnClickListener{
-            val intent= Intent(context,Create_Job_Activity::class.java)
-            startActivity(intent)
-        }
+
 
         return v
     }

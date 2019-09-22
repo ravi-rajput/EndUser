@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.ravi.enduser.Adapter.MyPagerAdapter
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.side_navi_home_activity.*
 
 
 class Home_Activity : AppCompatActivity() {
-
+    var floatingActionButton: FloatingActionButton?=null
     var mDoubleBackToExitPressedOnce : Boolean =false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +53,12 @@ class Home_Activity : AppCompatActivity() {
                 //toast("Drawer opened")
             }
         }
+        floatingActionButton=findViewById(R.id.add_jobsfloating)
 
-
+        floatingActionButton!!.setOnClickListener{
+            val intent= Intent(this,Create_Job_Activity::class.java)
+            startActivity(intent)
+        }
         // Configure the drawer layout to add listener and show icon on toolbar
         drawerToggle.isDrawerIndicatorEnabled = true
         drawer_layout.addDrawerListener(drawerToggle)
