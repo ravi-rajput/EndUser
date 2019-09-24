@@ -24,6 +24,7 @@
         <activity android:name=".Activity.SignUP_Activity"/>
         <activity android:name=".Activity.Login_Activity"/>
         <activity android:name=".Activity.Create_Job_Activity"/>
+        <activity android:name=".Activity.Create_Home_Content_Activity"/>
         <!--<service android:name=".Service" />-->
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import com.ravi.enduser.Fragments.JobList_Activity
+import com.ravi.enduser.Fragments.JobList_Fragment
 import com.ravi.enduser.model.MainDashboard_Model
 
 
@@ -18,7 +18,7 @@ class Main_Dashboard_ViewModel(var context: Context, val mainDashboard_Model: Ma
           toast.show()
      }
      fun onClick2(view: View){
-          var intent = Intent(context, JobList_Activity::class.java)
+          var intent = Intent(context, JobList_Fragment::class.java)
           context.startActivity(intent)
      }
      fun onClick3(view: View){

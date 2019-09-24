@@ -42,7 +42,7 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     app:cardCornerRadius="55dp"
-                    android:backgroundTint="#ffffff"
+                    android:backgroundTint="@color/colorPrimaryDark"
                     app:cardElevation="10dp"
                     android:layout_centerInParent="true">
                     <androidx.cardview.widget.CardView
@@ -50,13 +50,14 @@
                         android:layout_height="100dp"
                         app:cardCornerRadius="50dp"
                         app:cardElevation="10dp"
+                        android:background="@color/colorAccent"
                         android:layout_gravity="center">
                         <ImageView
                             android:id="@+id/profile"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/gspllogo"/>
+                            android:src="@drawable/galo_logo"/>
 
                     </androidx.cardview.widget.CardView>
                 </androidx.cardview.widget.CardView>

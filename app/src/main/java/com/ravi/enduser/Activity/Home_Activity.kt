@@ -1,34 +1,29 @@
 package com.ravi.enduser.Activity
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.ravi.enduser.Adapter.MyPagerAdapter
 import com.ravi.enduser.R
 import kotlinx.android.synthetic.main.home_activity.*
 import kotlinx.android.synthetic.main.side_navi_home_activity.*
-
+import android.util.Log
+import android.view.View
 
 class Home_Activity : AppCompatActivity() {
+
     var floatingActionButton: FloatingActionButton?=null
     var mDoubleBackToExitPressedOnce : Boolean =false
+    var tabLayout: TabLayout?=null
+    var position:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.home_activity)
 
-        setContentView(R.layout.side_navi_home_activity)
-
-        val menu: ImageView = findViewById(R.id.menu)
+        fullScreenView()
 
         val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
         viewpager_main.adapter = fragmentAdapter
@@ -37,74 +32,47 @@ class Home_Activity : AppCompatActivity() {
         tabs_main.setTabMode(TabLayout.MODE_SCROLLABLE)
         viewpager_main.setOffscreenPageLimit(5);
         // Initialize the action bar drawer toggle instance
-        val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
-                this,
-                drawer_layout,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {
-            override fun onDrawerClosed(view: View) {
-                super.onDrawerClosed(view)
-                //toast("Drawer closed")
+
+        floatingActionButton=findViewById(R.id.add_jobsfloating)
+        tabLayout=findViewById(R.id.tabs_main)
+        tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                position = tab.position
+if(position==0){
+    floatingActionButton!!.show()
+}else if(position==1){
+    floatingActionButton!!.hide()
+}
+else if(position==2){
+    floatingActionButton!!.hide()
+}
+else if(position==3){
+    floatingActionButton!!.show()
+}else if(position==4){
+    floatingActionButton!!.hide()
+}
+            Log.d("tabs_Possitions",position.toString())
             }
 
-            override fun onDrawerOpened(drawerView: View) {
-                super.onDrawerOpened(drawerView)
-                //toast("Drawer opened")
-            }
-        }
-        floatingActionButton=findViewById(R.id.add_jobsfloating)
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
+
+
 
         floatingActionButton!!.setOnClickListener{
-            val intent= Intent(this,Create_Job_Activity::class.java)
+            if(position!!.equals(0)){
+            val intent= Intent(this,Create_Home_Content_Activity::class.java)
             startActivity(intent)
-        }
-        // Configure the drawer layout to add listener and show icon on toolbar
-        drawerToggle.isDrawerIndicatorEnabled = true
-        drawer_layout.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
-
-        menu.setOnClickListener {
-            // your code to perform when the user clicks on the button
-            drawer_layout.openDrawer(GravityCompat.START)
-        }
-        // Close the drawer
-        drawer_layout.closeDrawer(GravityCompat.START)
-        true
-
-
-    val navigationView: NavigationView = findViewById(R.id.nav_view)
-    navigationView.setNavigationItemSelectedListener { menuItem ->
-        // set item as selected to persist highlight
-        menuItem.isChecked = true
-        // close drawer when item is tapped
-        drawer_layout.closeDrawers()
-
-        // Handle navigation view item clicks here.
-        when (menuItem.itemId) {
-
-            R.id.action_home -> {
-                Toast.makeText(this, "Profile", Toast.LENGTH_LONG).show()
-            }
-            R.id.action_job -> {
-                Toast.makeText(this, "Wallet", Toast.LENGTH_LONG).show()
-            }
-            R.id.action_login -> {
-                var intent = Intent(this, Login_Activity::class.java)
+            } else if(position!!.equals(3)){
+                val intent= Intent(this,Create_Job_Activity::class.java)
                 startActivity(intent)
             }
         }
-        // Add code here to update the UI based on the item selected
-        // For example, swap UI fragments here
-
-        true
-    }
-}
-
+        }
     override fun onBackPressed() {
-        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
-            drawer_layout.closeDrawer(GravityCompat.START)
-        }else {
+
            if (viewpager_main.getCurrentItem() > 0) {
                 //if any tab selected instead of tab 1
                 mDoubleBackToExitPressedOnce = false
@@ -114,7 +82,22 @@ class Home_Activity : AppCompatActivity() {
                 if (mDoubleBackToExitPressedOnce)
                     super.onBackPressed()
             }
-        }
+
         viewpager_main.setCurrentItem(0)//go to tab 1
     }
+    fun fullScreenView(){
+        this.getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fullScreenView()
+    }
+
 }

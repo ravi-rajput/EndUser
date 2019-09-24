@@ -3,7 +3,7 @@ package com.ravi.enduser.Adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.ravi.enduser.Fragments.JobList_Activity
+import com.ravi.enduser.Fragments.JobList_Fragment
 import com.ravi.enduser.Fragments.FirstFragment
 import com.ravi.enduser.Fragments.Fragment_Your_Area
 import com.ravi.enduser.Fragments.About_MLA_Fragment
@@ -19,7 +19,7 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
             1 -> About_MLA_Fragment()
             2 -> News_List_Fragment.newInstance("https://www.bhaskar.com/rss-feed/2322/")
-            3 -> JobList_Activity()
+            3 -> JobList_Fragment()
             4 -> Fragment_Your_Area()
             else -> {
                 return FirstFragment()

@@ -17,7 +17,7 @@ import com.ravi.enduser.Adapter.JobList_Adapter
 import com.ravi.enduser.R
 import com.ravi.enduser.viewmodel.Job_List_Item_ViewModel
 
-class JobList_Activity : Fragment(){
+class JobList_Fragment : Fragment(){
     private var recyclerView:RecyclerView?=null
     var joblistAdapter:JobList_Adapter?=null
 
